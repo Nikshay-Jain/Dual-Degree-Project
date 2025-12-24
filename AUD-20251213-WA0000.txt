@@ -1,0 +1,135 @@
+One way is to do it is look at the cases where it should do fraud. I mean, it is exactly a fraud case. But the earlier model was failing and this model is doing better.
+
+One case or multiple cases, that is one way. Second way is get a bunch of data, say some 50 cases, and see what the rule is saying, what the model is saying, what this new proposed model is saying. And we should be able to say and see in those cases, even if five of the cases are being improved, five of the predictions are improving, that is another way.
+
+Other way could be segment analysis. So the segment can be done at a level, I mean, the class level, output class level, or it can be done at teacher's level. So if I look at the class, I look at the people who are fraud, I will take 20 people who are fraud and see how their performance has improved across this model.
+
+Or I will take 20 people who are not fraud and see how their prediction has improved in these models. And what is the general improvement in case of fraud? What is the improvement in case of non-fraud, right? So I have a segment, so you can conclude that it is working. The model is improving more in fraud cases.
+
+I mean, it has improved in predicting frauds. It could also come out that it has improved in predicting non-frauds. Or the conclusion could be it is doing well in both the cases compared to the previous model.
+
+So this is with respect to, if you are looking with the output level. You can do a kind of this, the other, when you look at features, it will be more or less with respect to the, I mean, more or less EDA kind of study, where you look at some of the features, say like the number of claims in last three years in the feature, and you know, and your model, the main class development, the function is designed in such a way that whenever it increases, the model also stays the same, the output also stays the same. So for this particular flag, this particular feature, how has the model been? Is it doing better compared to the previous one? Or is it doing worse? So these are some of the ways to do that.
+
+This is what the... So by previous model, like when you say previous model, it means the previous iteration of this active learning sample, right? No, it is the, there is that baseline XGBoost model. Okay. In comparison to the baseline one.
+
+Yeah. Because the baseline is always the same, it is not changing over time, but our model is changing over time and it should change over, I mean, you assume a timeline, either six months or one year, and then it should be done. This slide is really bad, guys.
+
+I know you did it at the last moment. You could have added in the top of the previous slide, did you not have the access to that? No, I had it, but then I thought, because it's our industry presentation, they wouldn't be interested in seeing those previous ones. So I added only the new one.
+
+No, we could have started our conversation from there. That gives the context where we were last time and what we are doing. So I think we should continue the, I mean, previous.
+
+So first thing, I'll give a note on this also, what, why I didn't like the presentation. First thing, we have done a lot of effort in the data part, that does not show up here. I know you have mentioned the types of these things we have done, you should have put two, three snapshots of the data.
+
+It would make a lot of sense, right? Some of the features that are very interesting to look at that and how this fall under these features. Okay. So they'll have an idea.
+
+And then how some of the assumptions we have done, those distributional assumptions, that should also come in. Okay. No, I thought that could make the presentation too technical and too detailed, so they would just ignore it.
+
+That's fine. Let them ignore it. It will sound like we have done a lot of work and we have done a lot in that part, right? That is a good study because everything is backed with data.
+
+And then this one was not necessary, what function we have used to do. You could have done one, just one equation directly, not defining everything, right? Like tan, sine, y, we have used it. Keep the main equation where it's so high, it's going through some complicated equation that gives this.
+
+And in a way, if it could, some of that, not all, two, three features we could have shown that this feature has high correlation with the output, that makes it very realistic, right? So something like that, number of claims in last three years, if it increases, we have seen that it is higher in case of all the fraudulent cases and it is lower in case of non-fraudulent cases, so something like a box plot would make a lot more sense. And then, I do not know where this all factor came in, it was not, if you see slides, other important factors, what are these guys? I am seeing the slides and then I am presenting and I have no idea what are these. I just skipped some of them, I just randomly said few things on it.
+
+What are these? Yeah, so that was basically the continuation of the previous slide, that when we were, like how the final equation is formed, so what are the factors at highest correlation with fraud probability. We should say something like, that is not conveyed here and this is both can come in a single slide, I mean it should be shown somehow, like the plot I said, right? You mean the same, right? Some of these features show up in the equation. Yeah, yeah.
+
+So you could have shown that, either a plot or some relation. And the EDA part was, it is only relevant if we can show some of the specific cases where it is like this, okay. I mean seeing this overwhelming greater correlation plots and distribution plots, what will they understand? Nothing.
+
+So that is one thing. Yeah, got it. Got it.
+
+Rule-based, it is okay. This is good. And then I, directly to active learning, I said we do the training first, right, on basic, after the rule-based, whatever passes in the rule-based, it goes for a baseline model.
+
+And then baseline model gets improved by the AR parameters, so the baseline slide is missing here. Okay, like how the baseline is working. What is baseline? Which model is used? What is the metrics of, I mean, the accuracy metric or all of the metrics of that model? How is it performing? What is the cost if we use that model per year or per month? And then the active learning framework.
+
+And here should be a plot. So you can put the same plot that we used last time as a, you put it like a... Yeah. The five model plot, that one.
+
+Yeah, I presented to you this morning, right? I think I explained to Susan about that. The original slide that we had where there is a universe and then it is coming through the rules, it goes to the training. Yeah, yeah.
+
+So that can come as a schematic. Do not put it like the actual, because the numbers may not match. If you want to redesign it, you do that.
+
+That would be good. And then there are a lot of things like this, very uncertain, I mean, fine, but I am not used to presenting a lot of text-based slides, so it is like, will you read or will you explain the question? So I like more to explain than read the slides. Okay.
+
+So... Yeah, I get the point. The PPT was prepared in a hurry. Yeah, I know that.
+
+So not a lot of pictures could be added. Yeah, yeah. I get that.
+
+So, I mean, before sending it, let us correct these mistakes, so that if it goes to some higher authority, a person who is more technically sound, we do not seem like fools. So let us correct that. And then the active learning thing you can do, and yeah, this plot is really helpful that over time it is decreasing, right? But then other plots are very irrelevant.
+
+I mean, it is tough to make any conclusion from other plots. Can you explain to me? Oh, wait, wait. Let me go slide by slide.
+
+So first is active learning, this and query strategy. Again, this you should not have done. That is why I skipped it.
+
+That is our logic of defining uncertainty. This is the most crude way to do it, because we did not have time and to get uncertainty from XT, it might be tough. Use this.
+
+So, this you do not mention. So now you just mention uncertainty and let it be inside the code. This is a place where we need to do proper research, okay.
+
+This is the logic for retraining or logic for doing the survey, investigation. Okay. Yeah.
+
+I mean the flowchart, right? No, flowchart is fine. It is looking at uncertain cases. But uncertain meaning could be different.
+
+It could be uncertain in various respects. Here we have used the definition of uncertainty as 0.2 to 0.8 probability, right? That is what I am saying. Yeah.
+
+Like I think I had explained to you in the morning. There are many places. Yeah.
+
+That is what I am saying. Yeah. Yeah.
+
+This is where we will add more value. Okay. We will do.
+
+Yeah. And the next step, this is what should be done. More research on the way to find the, I mean, which cases to investigate.
+
+So skip this slide for now, but we will start our work on this. Next thing is monthly at loop. Again, new customers, random sample of 50, 100 and 2000.
+
+Was it done this way? A random sample was done, is it? No, no. So there are three methods that we can use. The smallest one for quick experimenting is like for every month you take 500 new samples and then you try re-training the model.
+
+And then afterwards I change the sample size. How was the performance? Okay. Yeah.
+
+I wanted to discuss with you. So what happens when I try to increase the sample size, that monthly there are like initially there were 500 people and then I changed it to 2000 and 5000 also. So, what started happening is this the the graph that we get at the end if. 
+
+So, currently you see that red line has an almost steady decrease after that it was decreasing, but that was a noisy decrease. So, not every iteration was showing a decrease it was rather a an up and down curve and then the greater part was like reducing. So, that is. 
+
+So, I have the code for that yeah. So, I have the code for that also I was trying to improve that thing as well. So, while sending it to them should I send the the node the small sample code or the larger one.
+
+We will we will come to that let us go one by one. So, this monthly it will do you can skip this slide or you mention it with the active learning this thing only active learning framework you mention it in brackets this is what we are doing or you you put it in the results this will come anyway in results I am adding this many customers put it like a parameters you are using for generating the results ok. And then this performance tracking is a good thing, but again it has a lot of things I mean I even I do not know what evolves your tracking and what is the meaning of each of them meaning in the sense how will precision what is the significance of precision here or recall here. 
+
+And like you can just write down basic formula like. No, no. It will be easy for you. 
+
+I know the formula, but what is the significance here because it is a cost sensitivity model this means. That way I mean. Yeah. 
+
+So, the my precision is increased which means this with every point increase in precision I am saving this much with every point increase in recall I am saving this much. So, my precision is more preferable than recall right. So, such thing we have that conclusion and the clarity then it makes sense basically. 
+
+So, for that it is very essential that we have this clarity and we use it and we do not need this many metrics. Threshold revolution is something yeah, you are saying something Sushant. Yeah, like we can just show a tradeoff kind of curve and the precision is like what like every other model does and recall is what we have to do because ours is cost sensitive.
+
+So, like a tradeoff curve would be sensible if we want to add something in that way. That is what I am saying let us have a clear understanding of precision and recall and the cost associated with it and how much are we saving in both and which one is priority for us. So, currently it is a recall rate because false negative cost is higher than the false positive.
+
+Correct. So, that should come up in the slides. Yeah, some tradeoff cost how it varies. 
+
+Yeah, they might not know what is precision, what is recall. Yes. Okay and this threshold evolution, I do not think it comes in this method threshold evolution as we are training on the same, I mean we are trying to improve the model and keeping that the model is being trained with the same intention. 
+
+We will not look at threshold evolution here. Maybe in other methods we try we have to explore it. I will try it now.
+
+Again, this results cost reduction over, see this, I said the universe is 5 lakhs, you cannot go on testing 70% of the entire universe. Always universe is big and you play around with a very small piece of it. That is why I said like take 500 or 1000 each month which is also huge and then if you go up to like go above a lakh, you are basically your model will learn the entire universe and it will perform like 100% and you get zero cost that is obvious and which is being shown. 
+
+So, which you should not be showing, I mean we are dealing with practical things and this is a impractical, I mean assumption or impractical thing to do. So, you can skip this slide as well. Other than, I mean the same slide is here as red, which makes sense because it is for the six months how it has increased or decreased and it should increase sometimes up and down is fine, but on an overall, it should decrease the cost.
+
+This again the total cost and after six months the change, this one is okay, but still again the precision recall, let us clarify it more than we do it, but better put it in terms of costs, the cost associated with recall, we save this much like that would be better. Fn count, false negative count, earlier it was 10, then 5, at that moment of time, I mean at that moment of while presenting, I did not even have idea what is Fn, so just coming out of nowhere and this is fine, this term is fine, the data sources, it is nice that you cited the data sources, but it is fine, you can cite it at the end and the data screens are supported and after this, the segment analysis will come that we discussed earlier, how to reflect that how our model has improved over time, I mean some cases where it was something else earlier, but now it is more close to actual, yes. Now, is there anything you guys want to ask? So, considering the submission that you have to make today, what all should I say, like I have like two Python notebooks, but they have some other experimental code as well, like they would not be interested in seeing that, so should I create one notebook, which they can learn directly and then? Yeah, obviously, it should be one click code, it cannot be our experimental code, so make a cleaner version of it, where there is synthetic data and they can run it top to bottom without any issue and then now it is up to them to how they want to implement it, right and if there is an issue in that, we can always support them.
+
+So, data generation parts of our code, they would not be interested, right? No, but if you do not think we have the data? I mean, we can add that, that also shows us some work, if that we are not having, then we should be having that generated data of 5 lakhs. Yeah, so I have both of those things ready, so whatever works for us is fine. Okay, also one thing, either when I look at that, after 10,000 iterations or 10,000 samples, your model has become 100 percent, I mean the cost reduction is 100 percent, which means that your mathematical function is not, your mathematical function is easily learnable, I think you need to add some noise into that.
+
+I have added some noise in the individual features, but I will add some extra noise as well. Features, you do not need to add noise to the features, features are anyway coming from the distribution. Yeah, like after we form this distribution, like exponential and all, then I have added some extra noise as well.
+
+And some other features are equivalent to noise. Features, do not add noise to the features, let the features be pure, there is noise in the mathematical equation. If it is, if you are adding very small noise, it is fine, but there is no need to add noise in the features.
+
+How it will help is, it will make sure that whatever is our assumption, our model is able to learn better and we are able to show that thing up in the results. But like, I was just trying to mimic the real-world scenario. Yeah, I get it, there is nothing wrong in doing that. 
+
+Yeah, there is nothing wrong in doing that, but because it is a distribution and if you are taking it from some distribution, it will be inherently, I mean, noisy, right? Take a Gaussian, like normal, non-DIST, like in Excel also. It would not give you the mean data every time, it will give you a mean plus standard deviation random data sample from it. It is already random, you do not need to add noise to that, that is how I assume you should have done. 
+
+Sir, can you repeat the last part, random probabilities? Sorry, can you say that again? Like what, you can repeat the last part, what you said about random probabilities. Random probabilities, I said, so we have two things we are doing, right? We are generating the data, by data I mean the features, and then we are generating the label. So features, we decided that we will come up with a particular distribution, that distribution which is in the, I mean, which is the actual distribution in the market.
+
+So say it is a normal distribution, right? It will have some mean and some standard deviation. We will use that mean and that standard deviation and pick a data from that standard normal, that normal distribution. Because I have the mean and standard deviation, every time I will pick it will give me a random, right? So there is inherently a randomness when I am generating the feature. 
+
+Even if I take the some binomial, I mean binary feature, I can use binomial equation with say 80% probability of first class or category, first category and 20% probability of second category. And when I pick it from the random distribution with these many probabilities, it is not, it should not come at perfect state and true. It will always be coming from a random distribution with that probability of having it and having, I mean, having 80% probability and having 20% probability, right? So no need to add a randomness to that, just use a probability distribution to generate it, and it will inherently be random. 
+
+When you do the label generation, in that equation, you can add a random noise. You get it, right? Yeah. So like, should I edit the data generation code and then generate new data? Yes. 
+
+Yes. I think you should do. Let us not get our basics wrong or inconsistent. 
+
+Anyway, we have to correct it sometime. Anything more you guys want to ask? So, regarding the report, like what format do they need in? Like, should that be a PDF or? You can ask for a report. No, like in the call, you just mentioned that in the report, we did not mention this.
