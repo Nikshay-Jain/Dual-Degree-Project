@@ -1,0 +1,101 @@
+So, this one is this problem statement but sir discussed is more related to insurance pricing. Okay. And this you will have to read how it is.
+
+There are some slides also sir from the lectures 30 on AI in finance. You know insurance payout. in general is not linear.
+
+For a company, if the person is a very healthy person, good person, say health insurance person is healthy person, there is very less chance he will claim anything. But if it is an unhealthy person, he will claim and pay him a huge amount. He will claim and what?
+
+This person will for a company you are now you are thinking in terms of I mean from a company perspective okay. Yeah. For you you want to I mean know how much a person I mean what is the work of of the insurance I give to him.
+
+I mean, if I give you the insurance to you versus Sujal, one of you will say Sujal is more likely to be unhealthy or he's going to take more claims. So here you can ignore fraud for now. Just take there is a healthy person and there is an unhealthy person. So a healthy person, a huge mass of population or in general insurance is how it happens is 100 people take insurance, only 7/8 will claim.
+
+Right? But when they claim, it's a huge amount compared to what the premium they pay. Yes?
+
+Correct. So how come the next money is they collect premium from everyone and so that premium when accumulated for a huge number, in some way is equivalent to whatever they pay. plus their profits and all.
+
+Yes? If you look at the distribution of payout, it's not a normal Gaussian distribution. There is a lot of value that is zero and very few values that are very high in number.
+
+Yes. So, this makes the modeling for pricing you can do it pricing or you can do it even estimation of the this payout this makes it claims okay yeah this makes it tough because it is not Gaussian all our assumptions ML model assumptions are based on the Gaussian right yeah so there are methods to deal with this so this kind of function this kind of distribution is called a copula it's like a special version of what you call a distribution. Okay.
+
+A Gaussian distribution which is in some way skewed towards the right and it's heavy towards the left. Left means zero. One hand is zero and other hand is heavily I mean going towards the infinity or a huge one.
+
+So, that's the kind of distribution. And you can do your ML models by putting this distribution in. So, in the XGOs, there is an option where you can put this distribution and you can still deal with the issues like this.
+
+Can you repeat the name of the distribution word? Copula. CO. It's called 3D distribution.
+
+Tweedie distribution.
+
+Okay. So. Just a second, I'm a little confused what is 2-pula, but PD is what we want.
+
+PD distribution is a single probability distribution used to model continuous with a mass of zeros, like incidence claims, whereas the copula is a mathematical system combines multiple separate distribution into a single multivariate. Okay, it's not copula, but it's 2D. Copula is a generalized Gaussian, but what I was trying to talk about is PD distribution.
+
+Okay. So if you didn't have 2D distribution, what you would do is you'll build two models, one model to see if a person is going to claim or not. A classification model is going to claim how much amount he's going to claim, right?
+
+That becomes, I mean, double model, right? One model on the top of another, a conditional model. Yes.
+
+So yeah, just to, I mean, To make it simpler, this Tweedy distribution is designed. Okay. Yeah.
+
+So, this is related insurance pricing or P-out estimation and now the distribution is not normal, it is Tweedy distribution. The research problem statement here is to use active learning to improve this distribution. Earlier you did active learning to improve a classification model, right?
+
+Probably. Yes, yes. Here, you are using active learning to improve this model.
+
+So, this is a two model setup. So, active learning. This is not a two model setup.
+
+This is, I mean, if it was, if it was not tweedy, it is a two model setup. But if it is tweedy, the model, the tweedy distribution is such that it is I mean, heavily, I mean, it is heavy at zero and has a huge tail in the right. So, it takes care of that.
+
+So. Okay, so when you put Tweedie as XGBoost, it is just a problem of Like whether it's not the problem of whether a person will claim an insurance or not, it will be key. How much would that be?
+
+Not how much would that be for? Like what the problem narrows down to? So I'll just send you a screen.
+
+And this 3D distribution has its own parameters. It has its own mean and its own variance formulas. You will have to read about that and earlier your logic was you were using variance in some sort of variance right some uncertainty to improve the performance of model where it might be biased it might be I mean not performing well right.
+
+You have to do the same here as well okay. You have to do the same here as well but the only problem is you have to find a good metric to do that. Here variance will not work because if you look at the distribution I just sent in your WhatsApp.
+
+Yeah, I've seen it. Yeah. So in this case, mean is related to variance.
+
+I mean, the formula of variance is such that it's mean square or something. So it's related to mean or the expected value. So we use variance.
+
+as a matrix to know the uncertain cases what will happen is it will always give you the cases with the higher value which means it will give you the cases from the right of this distribution because the expected value is high and variance is dependent on expected value so it says this is uncertain but that might not be the case. No, but then if you see the on the left side, the height is very high for the distribution. That's all zero.
+
+At zero, yeah. That is zero, means there is no payout. So the x axis has the amount of payout, is it?
+
+Yeah, x axis is the amount of payout, y axis is the frequency. So at zero, there is no and then, okay, understood. There is a high number of people at zero and there are less number of people who are claiming it.
+
+And whoever claimed it's a high value. So you can't just say just go and survey people who are taking high values. Right?
+
+That's why you might not improve the model. You want some better notion of uncertainty. Correct.
+
+So, that is the problem statement. You have to figure out what are the best ways to do that. To model the uncertainty.
+
+To model the uncertainty in a 2D distribution for insurance payout and pricing. But when, as you said, in XGBoost, there is a statement which we can include to model the 3D. What about XGBoost, but LGBM it is, you can do that.
+
+That's just for information. We are doing this more at a mathematical level, more at a, I mean, research level. It's not just we go and use that parameter.
+
+You use that parameter when you are doing the research, but how do you improve the, how do you implement AL in the problem statement? So, what are we trying to predict? We are trying to predict the distribution altogether for a given data set, right?
+
+You are trying to predict either the payout for a person and based on the payout, I mean, you do the pricing. So payout, yes or no, we are trying to credit. And based on that, we want to predict what insurance sum should be allotted to this person.
+
+Like before the insurance is signed. Oh, not the insurance sum. How much premium should I ask from this person?
+
+See, I know you are not going to ask because your health decision and everything is good. There is a very less chance. that you are going to ask for a insurance I mean you're going to claim for the insurance then I'll give you for 2,000 but if someone comes and I know his health situation is such that he's going to claim insurance for sure after two three years I'll ask him 10,000 okay that is a difference because the expected payout for that person maybe say three lakhs and give you maybe fifty thousand.
+
+I mean there also is a certain need to say you might not ask at all. So I mean say there is five percent chance of you asking for insurance claim and the chance I mean and what you are going to ask is five lakhs. So 5% into 5 lakh would be 25,000, right?
+
+Yeah. So your, I mean, payout is 25,000. If I take 2,000 for two years, I'm done. Right?
+
+Okay, yeah. But if someone is going to ask, I mean, there is a 50% chance of, I mean, claiming 3 lakh Then, what will I do? I will...
+
+So, 50% transmits, the expected payout is roughly, I mean, 1,50,000. So, I will charge him 10,000 per month. By the time period, it would also be predicted before that, right?
+
+No, no, I mean, all time period and everything is a concern. So imagine your features are what already this person have, how long is the insurance period, what is the insurance amount he is taking and all this. And your prediction may be the expected payout.
+
+Okay, okay, okay. Right. So we need to find the probability if the person will claim it or not.
+
+Multiply that with the insurance. It's the payout. You are directly, so you are going to predict something from this distribution.
+
+Either it is close to 0, either it is 0 or is it something here like this. Yeah. So, that one, so each row will predict some values from this distribution and based on that the pricing happens.
+
+So, you do the expected payout and you I mean design it for I mean number of months that how many months is going to pay all that. And then you will give him a pricing logic like this much you have to pay, right? So yeah.
+
+So and the number of months are set for every person or is it also dynamic? It may be dynamic. I mean, take real situations.
+
+Every one person will pay for different or read about it, how it works. Okay. So I think it gave a rough idea on what is to be done and what we are up to.
